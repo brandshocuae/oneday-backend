@@ -1,0 +1,76 @@
+{
+  "name": "seller",
+  "description": "seller",
+  "type": "seller",
+  "permissions": [
+    {
+      "action": "api::product.product.create"
+    },
+    {
+      "action": "api::product.product.delete"
+    },
+    {
+      "action": "api::product.product.find"
+    },
+    {
+      "action": "api::product.product.findOne"
+    },
+    {
+      "action": "api::product.product.update"
+    },
+    {
+      "action": "api::shop.shop.create"
+    },
+    {
+      "action": "api::shop.shop.delete"
+    },
+    {
+      "action": "api::shop.shop.find"
+    },
+    {
+      "action": "api::shop.shop.findOne"
+    },
+    {
+      "action": "api::shop.shop.update"
+    },
+    {
+      "action": "plugin::upload.content-api.destroy"
+    },
+    {
+      "action": "plugin::upload.content-api.find"
+    },
+    {
+      "action": "plugin::upload.content-api.findOne"
+    },
+    {
+      "action": "plugin::upload.content-api.upload"
+    },
+    {
+      "action": "plugin::users-permissions.auth.callback"
+    },
+    {
+      "action": "plugin::users-permissions.auth.changePassword"
+    },
+    {
+      "action": "plugin::users-permissions.auth.connect"
+    },
+    {
+      "action": "plugin::users-permissions.auth.emailConfirmation"
+    },
+    {
+      "action": "plugin::users-permissions.auth.forgotPassword"
+    },
+    {
+      "action": "plugin::users-permissions.auth.register"
+    },
+    {
+      "action": "plugin::users-permissions.auth.resetPassword"
+    },
+    {
+      "action": "plugin::users-permissions.auth.sendEmailConfirmation"
+    },
+    {
+      "action": "plugin::users-permissions.user.me"
+    }
+  ]
+}

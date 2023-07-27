@@ -1,0 +1,125 @@
+{
+  "key": "plugin_content_manager_configuration_content_types::api::markup.markup",
+  "value": {
+    "uid": "api::markup.markup",
+    "settings": {
+      "bulkable": true,
+      "filterable": true,
+      "searchable": true,
+      "pageSize": 10,
+      "mainField": "value_percentage",
+      "defaultSortBy": "value_percentage",
+      "defaultSortOrder": "ASC"
+    },
+    "metadatas": {
+      "id": {
+        "edit": {},
+        "list": {
+          "label": "id",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "value_percentage": {
+        "edit": {
+          "label": "value_percentage",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "value_percentage",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "product": {
+        "edit": {
+          "label": "product",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "productName"
+        },
+        "list": {
+          "label": "product",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "dicount": {
+        "edit": {
+          "label": "dicount",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "dicount",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "createdAt": {
+        "edit": {
+          "label": "createdAt",
+          "description": "",
+          "placeholder": "",
+          "visible": false,
+          "editable": true
+        },
+        "list": {
+          "label": "createdAt",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "updatedAt": {
+        "edit": {
+          "label": "updatedAt",
+          "description": "",
+          "placeholder": "",
+          "visible": false,
+          "editable": true
+        },
+        "list": {
+          "label": "updatedAt",
+          "searchable": true,
+          "sortable": true
+        }
+      }
+    },
+    "layouts": {
+      "list": [
+        "id",
+        "value_percentage",
+        "product",
+        "dicount"
+      ],
+      "edit": [
+        [
+          {
+            "name": "value_percentage",
+            "size": 6
+          },
+          {
+            "name": "product",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "dicount",
+            "size": 4
+          }
+        ]
+      ]
+    }
+  },
+  "type": "object",
+  "environment": null,
+  "tag": null
+}

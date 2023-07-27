@@ -1,0 +1,88 @@
+{
+  "name": "Public",
+  "description": "Default role given to unauthenticated user.",
+  "type": "public",
+  "permissions": [
+    {
+      "action": "api::product.product.create"
+    },
+    {
+      "action": "api::product.product.delete"
+    },
+    {
+      "action": "api::product.product.find"
+    },
+    {
+      "action": "api::product.product.findOne"
+    },
+    {
+      "action": "api::product.product.update"
+    },
+    {
+      "action": "api::seller.seller.create"
+    },
+    {
+      "action": "api::seller.seller.delete"
+    },
+    {
+      "action": "api::seller.seller.find"
+    },
+    {
+      "action": "api::seller.seller.findOne"
+    },
+    {
+      "action": "api::seller.seller.update"
+    },
+    {
+      "action": "api::shop.shop.create"
+    },
+    {
+      "action": "api::shop.shop.delete"
+    },
+    {
+      "action": "api::shop.shop.find"
+    },
+    {
+      "action": "api::shop.shop.findOne"
+    },
+    {
+      "action": "api::shop.shop.update"
+    },
+    {
+      "action": "api::todays-deal.todays-deal.create"
+    },
+    {
+      "action": "api::todays-deal.todays-deal.delete"
+    },
+    {
+      "action": "api::todays-deal.todays-deal.find"
+    },
+    {
+      "action": "api::todays-deal.todays-deal.findOne"
+    },
+    {
+      "action": "api::todays-deal.todays-deal.update"
+    },
+    {
+      "action": "plugin::users-permissions.auth.callback"
+    },
+    {
+      "action": "plugin::users-permissions.auth.connect"
+    },
+    {
+      "action": "plugin::users-permissions.auth.emailConfirmation"
+    },
+    {
+      "action": "plugin::users-permissions.auth.forgotPassword"
+    },
+    {
+      "action": "plugin::users-permissions.auth.register"
+    },
+    {
+      "action": "plugin::users-permissions.auth.resetPassword"
+    },
+    {
+      "action": "plugin::users-permissions.auth.sendEmailConfirmation"
+    }
+  ]
+}

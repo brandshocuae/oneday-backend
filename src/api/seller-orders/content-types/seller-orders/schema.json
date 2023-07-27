@@ -1,0 +1,47 @@
+{
+  "kind": "collectionType",
+  "collectionName": "seller_orders_all",
+  "info": {
+    "singularName": "seller-orders",
+    "pluralName": "seller-orders-all",
+    "displayName": "seller_orders",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "order_id": {
+      "type": "uid",
+      "required": false
+    },
+    "seller": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::seller.seller"
+    },
+    "order_date": {
+      "type": "date"
+    },
+    "order_items": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::order-item.order-item",
+      "mappedBy": "seller_order"
+    },
+    "any_instructions": {
+      "type": "richtext"
+    },
+    "order_status": {
+      "type": "enumeration",
+      "enum": [
+        "processing",
+        "completed",
+        "shipped",
+        "delivered",
+        "failed"
+      ]
+    }
+  }
+}

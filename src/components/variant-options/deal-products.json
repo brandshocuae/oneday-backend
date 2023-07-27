@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_variant_options_deal_products",
+  "info": {
+    "displayName": "dealProducts",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "products": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product"
+    },
+    "placement": {
+      "type": "string",
+      "unique": false,
+      "required": true,
+      "regex": "\\b(?:large|small|medium)\\b"
+    }
+  }
+}

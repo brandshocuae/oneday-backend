@@ -1,0 +1,80 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sellers",
+  "info": {
+    "singularName": "seller",
+    "pluralName": "sellers",
+    "displayName": "seller",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "sellerId": {
+      "type": "uid",
+      "required": true
+    },
+    "user_id": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "seller"
+    },
+    "products": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product",
+      "mappedBy": "seller"
+    },
+    "bank_details": {
+      "type": "text",
+      "default": "none"
+    },
+    "office_address": {
+      "type": "component",
+      "repeatable": false,
+      "component": "delivery-address.delivery-address"
+    },
+    "warehouse_address": {
+      "type": "component",
+      "repeatable": false,
+      "component": "delivery-address.delivery-address"
+    },
+    "office_phone_number": {
+      "type": "string",
+      "default": "none"
+    },
+    "mobile_phone_number": {
+      "type": "string",
+      "default": "none"
+    },
+    "whatsapp_number": {
+      "type": "string",
+      "default": "none"
+    },
+    "company_name": {
+      "type": "string",
+      "default": "none"
+    },
+    "company_registration_number": {
+      "type": "string",
+      "default": "none"
+    },
+    "contact_person_name": {
+      "type": "string",
+      "default": "none"
+    },
+    "contact_person_number": {
+      "type": "string",
+      "default": "none"
+    },
+    "firstName": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
+    }
+  }
+}

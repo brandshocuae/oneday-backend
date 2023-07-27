@@ -1,0 +1,56 @@
+{
+  "kind": "collectionType",
+  "collectionName": "address_books",
+  "info": {
+    "singularName": "address-book",
+    "pluralName": "address-books",
+    "displayName": "addressBook",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "addressLine1": {
+      "type": "string",
+      "required": true
+    },
+    "addressLine2": {
+      "type": "text"
+    },
+    "city": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "contact": {
+      "type": "string",
+      "required": true
+    },
+    "companyOrBuilding": {
+      "type": "string"
+    },
+    "zipCode": {
+      "type": "string",
+      "required": false
+    },
+    "long": {
+      "type": "string",
+      "default": ""
+    },
+    "lat": {
+      "type": "string",
+      "default": ""
+    },
+    "customer": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::customer.customer",
+      "inversedBy": "address_books"
+    }
+  }
+}

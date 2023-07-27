@@ -1,0 +1,58 @@
+{
+  "name": "admin",
+  "description": "admin",
+  "type": "admin",
+  "permissions": [
+    {
+      "action": "api::product.product.create"
+    },
+    {
+      "action": "api::product.product.delete"
+    },
+    {
+      "action": "api::product.product.find"
+    },
+    {
+      "action": "api::product.product.findOne"
+    },
+    {
+      "action": "api::product.product.update"
+    },
+    {
+      "action": "api::todays-deal.todays-deal.create"
+    },
+    {
+      "action": "api::todays-deal.todays-deal.delete"
+    },
+    {
+      "action": "api::todays-deal.todays-deal.find"
+    },
+    {
+      "action": "api::todays-deal.todays-deal.findOne"
+    },
+    {
+      "action": "api::todays-deal.todays-deal.update"
+    },
+    {
+      "action": "plugin::users-permissions.user.count"
+    },
+    {
+      "action": "plugin::users-permissions.user.create"
+    },
+    {
+      "action": "plugin::users-permissions.user.destroy"
+    },
+    {
+      "action": "plugin::users-permissions.user.find"
+    },
+    {
+      "action": "plugin::users-permissions.user.findOne"
+    },
+    {
+      "action": "plugin::users-permissions.user.me"
+    },
+    {
+      "action": "plugin::users-permissions.user.update"
+    }
+  ]
+}

@@ -1,0 +1,739 @@
+{
+  "name": "Editor",
+  "code": "strapi-editor",
+  "description": "Editors can manage and publish contents including those of other users.",
+  "permissions": [
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::address-book.address-book",
+      "properties": {
+        "fields": [
+          "addressLine1",
+          "addressLine2",
+          "city",
+          "email",
+          "contact",
+          "companyOrBuilding",
+          "zipCode",
+          "customer"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::address-book.address-book",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.publish",
+      "subject": "api::address-book.address-book",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::address-book.address-book",
+      "properties": {
+        "fields": [
+          "addressLine1",
+          "addressLine2",
+          "city",
+          "email",
+          "contact",
+          "companyOrBuilding",
+          "zipCode",
+          "customer"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::address-book.address-book",
+      "properties": {
+        "fields": [
+          "addressLine1",
+          "addressLine2",
+          "city",
+          "email",
+          "contact",
+          "companyOrBuilding",
+          "zipCode",
+          "customer"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::category.category",
+      "properties": {
+        "fields": [
+          "name",
+          "description",
+          "products"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::category.category",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.publish",
+      "subject": "api::category.category",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::category.category",
+      "properties": {
+        "fields": [
+          "name",
+          "description",
+          "products"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::category.category",
+      "properties": {
+        "fields": [
+          "name",
+          "description",
+          "products"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::customer.customer",
+      "properties": {
+        "fields": [
+          "firstName",
+          "lastName",
+          "address_book",
+          "user",
+          "orders"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::customer.customer",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.publish",
+      "subject": "api::customer.customer",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::customer.customer",
+      "properties": {
+        "fields": [
+          "firstName",
+          "lastName",
+          "address_book",
+          "user",
+          "orders"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::customer.customer",
+      "properties": {
+        "fields": [
+          "firstName",
+          "lastName",
+          "address_book",
+          "user",
+          "orders"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::markup.markup",
+      "properties": {
+        "fields": [
+          "value_percentage",
+          "product",
+          "dicount"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::markup.markup",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.publish",
+      "subject": "api::markup.markup",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::markup.markup",
+      "properties": {
+        "fields": [
+          "value_percentage",
+          "product",
+          "dicount"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::markup.markup",
+      "properties": {
+        "fields": [
+          "value_percentage",
+          "product",
+          "dicount"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::order-item.order-item",
+      "properties": {
+        "fields": [
+          "quantity",
+          "order",
+          "product",
+          "variation"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::order-item.order-item",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.publish",
+      "subject": "api::order-item.order-item",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::order-item.order-item",
+      "properties": {
+        "fields": [
+          "quantity",
+          "order",
+          "product",
+          "variation"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::order-item.order-item",
+      "properties": {
+        "fields": [
+          "quantity",
+          "order",
+          "product",
+          "variation"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::order.order",
+      "properties": {
+        "fields": [
+          "delivered",
+          "customer",
+          "order_items",
+          "fulfilled",
+          "totalAmount",
+          "deliveryAddress.addressLine1",
+          "deliveryAddress.addressLine2",
+          "deliveryAddress.city",
+          "deliveryAddress.contact",
+          "deliveryAddress.zipCode",
+          "deliveryAddress.companyOrBuilding"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::order.order",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.publish",
+      "subject": "api::order.order",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::order.order",
+      "properties": {
+        "fields": [
+          "delivered",
+          "customer",
+          "order_items",
+          "fulfilled",
+          "totalAmount",
+          "deliveryAddress.addressLine1",
+          "deliveryAddress.addressLine2",
+          "deliveryAddress.city",
+          "deliveryAddress.contact",
+          "deliveryAddress.zipCode",
+          "deliveryAddress.companyOrBuilding"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::order.order",
+      "properties": {
+        "fields": [
+          "delivered",
+          "customer",
+          "order_items",
+          "fulfilled",
+          "totalAmount",
+          "deliveryAddress.addressLine1",
+          "deliveryAddress.addressLine2",
+          "deliveryAddress.city",
+          "deliveryAddress.contact",
+          "deliveryAddress.zipCode",
+          "deliveryAddress.companyOrBuilding"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::product-variant.product-variant",
+      "properties": {
+        "fields": [
+          "skuId",
+          "options.quantity",
+          "options.values"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::product-variant.product-variant",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.publish",
+      "subject": "api::product-variant.product-variant",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::product-variant.product-variant",
+      "properties": {
+        "fields": [
+          "skuId",
+          "options.quantity",
+          "options.values"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::product-variant.product-variant",
+      "properties": {
+        "fields": [
+          "skuId",
+          "options.quantity",
+          "options.values"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::product.product",
+      "properties": {
+        "fields": [
+          "productName",
+          "productImages",
+          "isActive",
+          "categories",
+          "seller",
+          "price.currency",
+          "price.discountPrice",
+          "price.price",
+          "markup",
+          "ProductDescription",
+          "placement",
+          "product_variants",
+          "attributes",
+          "slug",
+          "stock",
+          "variations",
+          "description",
+          "sale"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::product.product",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.publish",
+      "subject": "api::product.product",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::product.product",
+      "properties": {
+        "fields": [
+          "productName",
+          "productImages",
+          "isActive",
+          "categories",
+          "seller",
+          "price.currency",
+          "price.discountPrice",
+          "price.price",
+          "markup",
+          "ProductDescription",
+          "placement",
+          "product_variants",
+          "attributes",
+          "slug",
+          "stock",
+          "variations",
+          "description",
+          "sale"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::product.product",
+      "properties": {
+        "fields": [
+          "productName",
+          "productImages",
+          "isActive",
+          "categories",
+          "seller",
+          "price.currency",
+          "price.discountPrice",
+          "price.price",
+          "markup",
+          "ProductDescription",
+          "placement",
+          "product_variants",
+          "attributes",
+          "slug",
+          "stock",
+          "variations",
+          "description",
+          "sale"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::seller.seller",
+      "properties": {
+        "fields": [
+          "sellerId",
+          "products",
+          "user_id"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::seller.seller",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.publish",
+      "subject": "api::seller.seller",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::seller.seller",
+      "properties": {
+        "fields": [
+          "sellerId",
+          "products",
+          "user_id"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::seller.seller",
+      "properties": {
+        "fields": [
+          "sellerId",
+          "products",
+          "user_id"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::shop.shop",
+      "properties": {
+        "fields": [
+          "name",
+          "deals",
+          "shopBanner",
+          "category"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::shop.shop",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.publish",
+      "subject": "api::shop.shop",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::shop.shop",
+      "properties": {
+        "fields": [
+          "name",
+          "deals",
+          "shopBanner",
+          "category"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::shop.shop",
+      "properties": {
+        "fields": [
+          "name",
+          "deals",
+          "shopBanner",
+          "category"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::todays-deal.todays-deal",
+      "properties": {
+        "fields": [
+          "startDateTime",
+          "endDateTime",
+          "dealMainBanner",
+          "name"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::todays-deal.todays-deal",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.publish",
+      "subject": "api::todays-deal.todays-deal",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::todays-deal.todays-deal",
+      "properties": {
+        "fields": [
+          "startDateTime",
+          "endDateTime",
+          "dealMainBanner",
+          "name"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::todays-deal.todays-deal",
+      "properties": {
+        "fields": [
+          "startDateTime",
+          "endDateTime",
+          "dealMainBanner",
+          "name"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.create",
+      "subject": "api::variation.variation",
+      "properties": {
+        "fields": [
+          "name",
+          "slug",
+          "stock",
+          "sale",
+          "variantDescription",
+          "images",
+          "product",
+          "price.currency",
+          "price.discountPrice",
+          "price.price"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.delete",
+      "subject": "api::variation.variation",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.publish",
+      "subject": "api::variation.variation",
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.read",
+      "subject": "api::variation.variation",
+      "properties": {
+        "fields": [
+          "name",
+          "slug",
+          "stock",
+          "sale",
+          "variantDescription",
+          "images",
+          "product",
+          "price.currency",
+          "price.discountPrice",
+          "price.price"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::content-manager.explorer.update",
+      "subject": "api::variation.variation",
+      "properties": {
+        "fields": [
+          "name",
+          "slug",
+          "stock",
+          "sale",
+          "variantDescription",
+          "images",
+          "product",
+          "price.currency",
+          "price.discountPrice",
+          "price.price"
+        ]
+      },
+      "conditions": []
+    },
+    {
+      "action": "plugin::upload.assets.copy-link",
+      "subject": null,
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::upload.assets.create",
+      "subject": null,
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::upload.assets.download",
+      "subject": null,
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::upload.assets.update",
+      "subject": null,
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::upload.configure-view",
+      "subject": null,
+      "properties": {},
+      "conditions": []
+    },
+    {
+      "action": "plugin::upload.read",
+      "subject": null,
+      "properties": {},
+      "conditions": []
+    }
+  ]
+}

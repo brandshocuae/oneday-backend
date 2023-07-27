@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_product_description",
+  "info": {
+    "displayName": "description"
+  },
+  "options": {},
+  "attributes": {
+    "feature": {
+      "type": "component",
+      "repeatable": true,
+      "component": "feature.feature"
+    }
+  }
+}

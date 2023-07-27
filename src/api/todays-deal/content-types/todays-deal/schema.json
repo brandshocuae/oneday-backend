@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "todays_deals",
+  "info": {
+    "singularName": "todays-deal",
+    "pluralName": "todays-deals",
+    "displayName": "todaysDeal",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "startDateTime": {
+      "type": "datetime",
+      "required": true,
+      "unique": false
+    },
+    "endDateTime": {
+      "required": true,
+      "type": "datetime"
+    },
+    "dealMainBanner": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "name": {
+      "type": "string"
+    },
+    "shops": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::shop.shop",
+      "mappedBy": "todays_deal"
+    },
+    "dealProducts": {
+      "displayName": "dealProducts",
+      "type": "component",
+      "repeatable": true,
+      "component": "variant-options.deal-products"
+    }
+  }
+}

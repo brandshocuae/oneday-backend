@@ -1,0 +1,153 @@
+{
+  "key": "plugin_content_manager_configuration_components::delivery-address.delivery-address",
+  "value": {
+    "uid": "delivery-address.delivery-address",
+    "settings": {
+      "bulkable": true,
+      "filterable": true,
+      "searchable": true,
+      "pageSize": 10,
+      "mainField": "addressLine1",
+      "defaultSortBy": "addressLine1",
+      "defaultSortOrder": "ASC"
+    },
+    "metadatas": {
+      "id": {
+        "edit": {},
+        "list": {
+          "label": "id",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "addressLine1": {
+        "edit": {
+          "label": "addressLine1",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "addressLine1",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "addressLine2": {
+        "edit": {
+          "label": "addressLine2",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "addressLine2",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "city": {
+        "edit": {
+          "label": "city",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "city",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "contact": {
+        "edit": {
+          "label": "contact",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "contact",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "zipCode": {
+        "edit": {
+          "label": "zipCode",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "zipCode",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "companyOrBuilding": {
+        "edit": {
+          "label": "companyOrBuilding",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "companyOrBuilding",
+          "searchable": true,
+          "sortable": true
+        }
+      }
+    },
+    "layouts": {
+      "list": [
+        "id",
+        "addressLine1",
+        "addressLine2",
+        "city"
+      ],
+      "edit": [
+        [
+          {
+            "name": "addressLine1",
+            "size": 6
+          },
+          {
+            "name": "addressLine2",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "city",
+            "size": 6
+          },
+          {
+            "name": "contact",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "zipCode",
+            "size": 6
+          },
+          {
+            "name": "companyOrBuilding",
+            "size": 6
+          }
+        ]
+      ]
+    },
+    "isComponent": true
+  },
+  "type": "object",
+  "environment": null,
+  "tag": null
+}

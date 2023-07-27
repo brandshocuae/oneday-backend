@@ -1,0 +1,462 @@
+{
+  "key": "plugin_content_manager_configuration_content_types::api::product.product",
+  "value": {
+    "uid": "api::product.product",
+    "settings": {
+      "bulkable": true,
+      "filterable": true,
+      "searchable": true,
+      "pageSize": 10,
+      "mainField": "productName",
+      "defaultSortBy": "productName",
+      "defaultSortOrder": "ASC"
+    },
+    "metadatas": {
+      "id": {
+        "edit": {},
+        "list": {
+          "label": "id",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "productName": {
+        "edit": {
+          "label": "productName",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "productName",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "productImages": {
+        "edit": {
+          "label": "productImages",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "productImages",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "isActive": {
+        "edit": {
+          "label": "isActive",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "isActive",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "categories": {
+        "edit": {
+          "label": "categories",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "name"
+        },
+        "list": {
+          "label": "categories",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "seller": {
+        "edit": {
+          "label": "seller",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "id"
+        },
+        "list": {
+          "label": "seller",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "price": {
+        "edit": {
+          "label": "price",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "price",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "markup": {
+        "edit": {
+          "label": "markup",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "value_percentage"
+        },
+        "list": {
+          "label": "markup",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "ProductDescription": {
+        "edit": {
+          "label": "ProductDescription",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "ProductDescription",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "placement": {
+        "edit": {
+          "label": "placement",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "placement",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "product_variants": {
+        "edit": {
+          "label": "product_variants",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "id"
+        },
+        "list": {
+          "label": "product_variants",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "attributes": {
+        "edit": {
+          "label": "attributes",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "attributes",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "slug": {
+        "edit": {
+          "label": "slug",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "slug",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "stock": {
+        "edit": {
+          "label": "stock",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "stock",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "variations": {
+        "edit": {
+          "label": "variations",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "name"
+        },
+        "list": {
+          "label": "variations",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "description": {
+        "edit": {
+          "label": "description",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "description",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "sale": {
+        "edit": {
+          "label": "sale",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "sale",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "reviews": {
+        "edit": {
+          "label": "reviews",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "id"
+        },
+        "list": {
+          "label": "reviews",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "publishDate": {
+        "edit": {
+          "label": "publishDate",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "publishDate",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "dimension": {
+        "edit": {
+          "label": "dimension",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "dimension",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "weight": {
+        "edit": {
+          "label": "weight",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "weight",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "createdAt": {
+        "edit": {
+          "label": "createdAt",
+          "description": "",
+          "placeholder": "",
+          "visible": false,
+          "editable": true
+        },
+        "list": {
+          "label": "createdAt",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "updatedAt": {
+        "edit": {
+          "label": "updatedAt",
+          "description": "",
+          "placeholder": "",
+          "visible": false,
+          "editable": true
+        },
+        "list": {
+          "label": "updatedAt",
+          "searchable": true,
+          "sortable": true
+        }
+      }
+    },
+    "layouts": {
+      "list": [
+        "id",
+        "productName",
+        "productImages",
+        "isActive"
+      ],
+      "edit": [
+        [
+          {
+            "name": "productName",
+            "size": 6
+          },
+          {
+            "name": "productImages",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "isActive",
+            "size": 4
+          },
+          {
+            "name": "categories",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "seller",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "price",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "markup",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "ProductDescription",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "placement",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "product_variants",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "attributes",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "slug",
+            "size": 6
+          },
+          {
+            "name": "stock",
+            "size": 4
+          }
+        ],
+        [
+          {
+            "name": "variations",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "description",
+            "size": 12
+          }
+        ],
+        [
+          {
+            "name": "sale",
+            "size": 4
+          }
+        ],
+        [
+          {
+            "name": "reviews",
+            "size": 6
+          },
+          {
+            "name": "publishDate",
+            "size": 4
+          }
+        ],
+        [
+          {
+            "name": "dimension",
+            "size": 6
+          },
+          {
+            "name": "weight",
+            "size": 4
+          }
+        ]
+      ]
+    }
+  },
+  "type": "object",
+  "environment": null,
+  "tag": null
+}

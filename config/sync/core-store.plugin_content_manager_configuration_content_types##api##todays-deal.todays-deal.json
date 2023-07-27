@@ -1,0 +1,183 @@
+{
+  "key": "plugin_content_manager_configuration_content_types::api::todays-deal.todays-deal",
+  "value": {
+    "uid": "api::todays-deal.todays-deal",
+    "settings": {
+      "bulkable": true,
+      "filterable": true,
+      "searchable": true,
+      "pageSize": 10,
+      "mainField": "name",
+      "defaultSortBy": "name",
+      "defaultSortOrder": "ASC"
+    },
+    "metadatas": {
+      "id": {
+        "edit": {},
+        "list": {
+          "label": "id",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "startDateTime": {
+        "edit": {
+          "label": "startDateTime",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "startDateTime",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "endDateTime": {
+        "edit": {
+          "label": "endDateTime",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "endDateTime",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "dealMainBanner": {
+        "edit": {
+          "label": "dealMainBanner",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "dealMainBanner",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "name": {
+        "edit": {
+          "label": "name",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "name",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "shops": {
+        "edit": {
+          "label": "shops",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true,
+          "mainField": "name"
+        },
+        "list": {
+          "label": "shops",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "dealProducts": {
+        "edit": {
+          "label": "dealProducts",
+          "description": "",
+          "placeholder": "",
+          "visible": true,
+          "editable": true
+        },
+        "list": {
+          "label": "dealProducts",
+          "searchable": false,
+          "sortable": false
+        }
+      },
+      "createdAt": {
+        "edit": {
+          "label": "createdAt",
+          "description": "",
+          "placeholder": "",
+          "visible": false,
+          "editable": true
+        },
+        "list": {
+          "label": "createdAt",
+          "searchable": true,
+          "sortable": true
+        }
+      },
+      "updatedAt": {
+        "edit": {
+          "label": "updatedAt",
+          "description": "",
+          "placeholder": "",
+          "visible": false,
+          "editable": true
+        },
+        "list": {
+          "label": "updatedAt",
+          "searchable": true,
+          "sortable": true
+        }
+      }
+    },
+    "layouts": {
+      "list": [
+        "id",
+        "startDateTime",
+        "endDateTime",
+        "dealMainBanner"
+      ],
+      "edit": [
+        [
+          {
+            "name": "startDateTime",
+            "size": 6
+          },
+          {
+            "name": "endDateTime",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "dealMainBanner",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "name",
+            "size": 6
+          },
+          {
+            "name": "shops",
+            "size": 6
+          }
+        ],
+        [
+          {
+            "name": "dealProducts",
+            "size": 12
+          }
+        ]
+      ]
+    }
+  },
+  "type": "object",
+  "environment": null,
+  "tag": null
+}

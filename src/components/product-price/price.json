@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_product_price_prices",
+  "info": {
+    "displayName": "price",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "currency": {
+      "type": "string",
+      "required": true,
+      "default": "AED"
+    },
+    "discountPrice": {
+      "type": "decimal"
+    },
+    "price": {
+      "type": "decimal",
+      "required": true
+    },
+    "retail_price": {
+      "type": "decimal"
+    }
+  }
+}

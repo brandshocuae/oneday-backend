@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_product_variant_variants",
+  "info": {
+    "displayName": "variants",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "options": {
+      "type": "component",
+      "repeatable": true,
+      "component": "variant-options.options"
+    }
+  }
+}

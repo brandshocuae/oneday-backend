@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_variant_options_options",
+  "info": {
+    "displayName": "options",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "quantity": {
+      "type": "integer"
+    },
+    "values": {
+      "type": "json"
+    }
+  }
+}
