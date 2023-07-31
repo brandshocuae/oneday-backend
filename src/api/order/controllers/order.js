@@ -458,7 +458,7 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
           if (data.code == 200) tracking_id = data.data.expressNo;
           else {
             await strapi.entityService.delete("api::order.order", order?.id);
-            throw new ApplicationError(data.message);
+            ctx.badRequest("Address Validation Error", data.message);
           }
         })
         .catch((err) => console.error(err));
