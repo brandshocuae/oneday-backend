@@ -117,6 +117,9 @@
     },
     "barcode": {
       "type": "string"
+    },
+    "product_images": {
+      "type": "json"
     }
   }
 }
