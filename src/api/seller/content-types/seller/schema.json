@@ -76,11 +76,11 @@
     "lastName": {
       "type": "string"
     },
-    "image_gallery": {
+    "gallery": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::image-gallery.image-gallery",
-      "inversedBy": "seller_id"
+      "mappedBy": "seller"
     }
   }
 }

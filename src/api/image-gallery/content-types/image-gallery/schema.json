@@ -12,12 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "seller_id": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::seller.seller",
-      "inversedBy": "image_gallery"
-    },
     "all_media": {
       "type": "media",
       "multiple": true,
@@ -28,6 +22,12 @@
         "videos",
         "audios"
       ]
+    },
+    "seller": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::seller.seller",
+      "inversedBy": "gallery"
     }
   }
 }
