@@ -325,12 +325,9 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
         ) {
           await strapi.entityService.delete("api::order.order", order?.id);
 
-          throw new ValidationError(
-            "insufficient stock, could not create order",
-            {
-              item,
-              order_item,
-            }
+          return ctx.badRequest(
+            "Stock Error",
+            "insufficient stock, could not create order"
           );
         }
 
