@@ -4,27 +4,29 @@
   "info": {
     "singularName": "image-gallery",
     "pluralName": "image-galleries",
-    "displayName": "ImageGallery"
+    "displayName": "ImageGallery",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "user_id": {
+    "seller_id": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "plugin::users-permissions.user"
+      "target": "api::seller.seller"
     },
     "all_media": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
     }
   }
 }
