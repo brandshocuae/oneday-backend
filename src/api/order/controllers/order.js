@@ -443,7 +443,7 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
       deliveryParams.param.orderCode = `OD-AE-${order?.id}`;
 
       let tracking_id = null;
-
+      let errorCreateB2cOrder = { status: false, message: "" };
       await fetch(`${IMILE_BASE_URL}/client/order/createB2cOrder`, {
         method: "POST",
         headers: {
@@ -458,10 +458,18 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
           if (data.code == 200) tracking_id = data.data.expressNo;
           else {
             await strapi.entityService.delete("api::order.order", order?.id);
-            ctx.badRequest("Address Validation Error", data.message);
+            errorCreateB2cOrder.status = true;
+            errorCreateB2cOrder.message = data.message;
           }
         })
         .catch((err) => console.error(err));
+
+      if (errorCreateB2cOrder.status) {
+        return ctx.badRequest(
+          "Address Validation Error",
+          errorCreateB2cOrder.message
+        );
+      }
 
       if (body?.data?.payment_method == 2 || body?.data?.payment_method == 7) {
         const paymentLinkExpireDate = new Date();
