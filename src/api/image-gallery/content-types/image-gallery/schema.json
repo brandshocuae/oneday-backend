@@ -15,7 +15,8 @@
     "seller_id": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::seller.seller"
+      "target": "api::seller.seller",
+      "inversedBy": "image_gallery"
     },
     "all_media": {
       "type": "media",
