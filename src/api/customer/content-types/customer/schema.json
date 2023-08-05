@@ -35,6 +35,12 @@
       "relation": "oneToMany",
       "target": "api::order.order",
       "mappedBy": "customer"
+    },
+    "customer_queries": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::customer-query.customer-query",
+      "mappedBy": "customer"
     }
   }
 }

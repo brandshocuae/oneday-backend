@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "customer_queries",
+  "info": {
+    "singularName": "customer-query",
+    "pluralName": "customer-queries",
+    "displayName": "customer_query"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "type": {
+      "type": "string",
+      "required": true
+    },
+    "customer": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::customer.customer",
+      "inversedBy": "customer_queries"
+    },
+    "data": {
+      "type": "json",
+      "required": true
+    },
+    "admin_reponse": {
+      "type": "richtext",
+      "required": false
+    },
+    "responded": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}
