@@ -81,8 +81,8 @@ module.exports = createCoreController(
             .plugin("email")
             .service("email")
             .send({
-              // to: foundquery.customer.user.email,
-              to: "projectmanageratgeek@gmail.com",
+              to: foundquery.customer.user.email,
+              // to: "projectmanageratgeek@gmail.com",
               from: "info@oneday.ae",
               replyTo: "info@oneday.ae",
               subject: `Respond to ${foundquery.type} #${queryId}`,
