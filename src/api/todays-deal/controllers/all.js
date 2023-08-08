@@ -13,7 +13,10 @@ const {
 module.exports = {
   all: async (ctx) => {
     const deals = await strapi.entityService.findMany(
-      "api::todays-deal.todays-deal"
+      "api::todays-deal.todays-deal",
+      {
+        ...ctx.query,
+      }
     );
     //   const today = new Date();
     //   const startOfDay = new Date(today.getFullYear(), today.getMonth(), today.getDate());
