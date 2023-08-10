@@ -15,7 +15,7 @@ const { yup, validateYupSchema, errors } = require("@strapi/utils");
 
 const { ApplicationError, ValidationError, NotFoundError } = errors;
 
-const LINK_EXPIRE = 5;
+const LINK_EXPIRE = 30;
 const IMILE_BASE_URL = "https://openapi.52imile.cn";
 // const DELIVERY_URL = "https://openapi.imile.com"
 
@@ -467,8 +467,9 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
           errorCreateB2cOrder.message
         );
       }
-
+      let courier_payment_status = false;
       if (body?.data?.payment_method == 2 || body?.data?.payment_method == 7) {
+        courier_payment_status = true;
         const paymentLinkExpireDate = new Date();
         paymentLinkExpireDate.setMinutes(
           paymentLinkExpireDate.getMinutes() + LINK_EXPIRE
@@ -560,6 +561,7 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
             publishedAt: new Date(),
             payment_link: checkoutUrl,
             awb_label,
+            courier_payment_status,
           },
         }
       );
