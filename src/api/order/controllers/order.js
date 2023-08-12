@@ -9,6 +9,7 @@ const jwt = require("jsonwebtoken");
 const stripe = require("stripe")(process.env.SECRET_TEST_KEY);
 const fetch = require("node-fetch");
 const schedule = require("node-schedule");
+const easyinvoice = require("easyinvoice");
 
 // validation
 const { yup, validateYupSchema, errors } = require("@strapi/utils");
@@ -60,6 +61,33 @@ const fromDecToInt = (number) => parseInt(number * 100);
 
 module.exports = createCoreController("api::order.order", ({ strapi }) => ({
   async create(ctx) {
+    const invoiceData = {
+      client: {
+        country: "UAE",
+      },
+      sender: {
+        company: "ONEDAY AE",
+        address: "Sample Street 123",
+        zip: "1234 AB",
+        city: "Sampletown",
+        country: "UAE",
+      },
+      images: {
+        logo: "https://oneday.ae/Logo.png",
+      },
+
+      information: {
+        date: "12-12-2021",
+        "due-date": "31-12-2021",
+      },
+      products: [],
+      bottomNotice:
+        "If you have selected Online Payment Method thne pay within 30 Minutes else your order will be cancelled",
+      settings: {
+        currency: "AED",
+      },
+    };
+
     const DEFAULT_PARAMS = {
       customerId: process.env.IMILE_CUSTOMER_ID,
       sign: process.env.IMILE_API_KEY,
@@ -195,6 +223,9 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
         body?.data?.deliveryAddress.long;
       deliveryParams.param.consigneeLatitude = body?.data?.deliveryAddress.lat;
 
+      invoiceData.client.address = body?.data?.deliveryAddress.addressLine1;
+      invoiceData.client.city = body?.data?.deliveryAddress.city;
+
       // create order with customer id
       const order = await strapi.entityService.create("api::order.order", {
         data: {
@@ -316,7 +347,12 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
           skuGoodsValue: order_item.subTotal,
           skuUrl: "",
         });
-
+        invoiceData.products.push({
+          quantity: order_item.quantity,
+          description: officialProduct.productName,
+          price: order_item.subTotal,
+          "tax-rate": 0,
+        });
         // if there is less stock then request
         if (
           item?.stock === null ||
@@ -438,6 +474,7 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
       deliveryParams.param.totalWeight = totalWeight;
       deliveryParams.param.skuName = `OD-AE-${order?.id}`;
       deliveryParams.param.orderCode = `OD-AE-${order?.id}`;
+      invoiceData.information.number = `OD-AE-${order?.id}`;
 
       let tracking_id = null;
       let errorCreateB2cOrder = { status: false, message: "" };
@@ -517,6 +554,10 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
           }
         );
       }
+      let order_invoice = "";
+      easyinvoice.createInvoice(invoiceData, async function (result) {
+        order_invoice = "data:application/pdf;base64," + result.pdf;
+      });
 
       await strapi
         .plugin("email")
@@ -559,6 +600,7 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
             publishedAt: new Date(),
             payment_link: checkoutUrl,
             awb_label,
+            order_invoice: order_invoice,
           },
         }
       );
@@ -567,7 +609,7 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
       // // return { message: "order created!", data: customer };
       return {
         message: "order created!",
-        data: published,
+        data: published.id,
         payUrl: checkoutUrl,
       };
     } catch (error) {
