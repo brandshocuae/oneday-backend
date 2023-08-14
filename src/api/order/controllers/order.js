@@ -643,7 +643,6 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
         message: "order created!",
         data: published.id,
         payUrl: checkoutUrl,
-        deliveryParams,
       };
       // return "done";
     } catch (error) {
