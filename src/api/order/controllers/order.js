@@ -5,11 +5,11 @@
  */
 const { createCoreController } = require("@strapi/strapi").factories;
 const _ = require("lodash");
-const jwt = require("jsonwebtoken");
 const stripe = require("stripe")(process.env.SECRET_TEST_KEY);
 const fetch = require("node-fetch");
 const schedule = require("node-schedule");
 const easyinvoice = require("easyinvoice");
+const fs = require("fs");
 
 // validation
 const { yup, validateYupSchema, errors } = require("@strapi/utils");
@@ -555,9 +555,42 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
         );
       }
       let order_invoice = "";
-      easyinvoice.createInvoice(invoiceData, async function (result) {
-        order_invoice = "data:application/pdf;base64," + result.pdf;
-      });
+
+      try {
+        easyinvoice.createInvoice(invoiceData, async function (result) {
+          let invoiceName =
+            Math.floor(Math.random() * 1000000000) + "_invoice.pdf";
+
+          fs.writeFileSync(
+            `./public/uploads/${invoiceName}`,
+            result.pdf,
+            "base64"
+          );
+          let testUpload = await strapi
+            .plugin("upload")
+            .service("upload")
+            .upload({
+              data: {},
+              files: {
+                path: `${process.cwd()}/public/uploads/${invoiceName}`,
+                name: "invoice.pdf",
+                type: "application/pdf",
+                size: fs.statSync(
+                  `${process.cwd()}/public/uploads/${invoiceName}`
+                ).size,
+              },
+            });
+          fs.unlink(`${process.cwd()}/public/uploads/${invoiceName}`, (err) => {
+            if (err) console.log(err);
+            else {
+              console.log("Invoice Deleted From Local");
+            }
+          });
+          order_invoice = testUpload[0].url;
+        });
+      } catch (error) {
+        return ctx.badRequest("Error while generating invoice", error);
+      }
 
       await strapi
         .plugin("email")
@@ -604,14 +637,15 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
           },
         }
       );
-
       // // return this.transformResponse(sanitizedResults);
       // // return { message: "order created!", data: customer };
       return {
         message: "order created!",
         data: published.id,
         payUrl: checkoutUrl,
+        deliveryParams,
       };
+      // return "done";
     } catch (error) {
       console.error("error occurred : ", error);
       if (_.includes(error.name, "ValidationError")) {

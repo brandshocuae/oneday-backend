@@ -10,5 +10,5 @@ module.exports = ({ env }) => ({
       salt: env("TRANSFER_TOKEN_SALT"),
     },
   },
-  watchIgnoreFiles: ["**/config/sync/**"],
+  watchIgnoreFiles: ["**/config/sync/**", "**/public/uploads/**"],
 });
