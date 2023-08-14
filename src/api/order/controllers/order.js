@@ -624,6 +624,7 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
         })
         .catch((err) => console.error(err));
 
+      console.log(order_invoice);
       const published = await strapi.entityService.update(
         "api::order.order",
         order?.id,
@@ -633,17 +634,17 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
             publishedAt: new Date(),
             payment_link: checkoutUrl,
             awb_label,
-            order_invoice: order_invoice,
+            order_invoice,
           },
         }
       );
       // // return this.transformResponse(sanitizedResults);
       // // return { message: "order created!", data: customer };
+      console.log(published);
       return {
         message: "order created!",
-        data: published.id,
+        data: published,
         payUrl: checkoutUrl,
-        order_invoice,
       };
       // return "done";
     } catch (error) {
