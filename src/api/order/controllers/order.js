@@ -474,7 +474,7 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
       deliveryParams.param.skuName = `OD-AE-${order?.id}`;
       deliveryParams.param.orderCode = `OD-AE-${order?.id}`;
       invoiceData.information.number = `OD-AE-${order?.id}`;
-      invoiceData.information.date = new Date().todaysDate();
+      invoiceData.information.date = new Date().toDateString();
 
       let tracking_id = null;
       let errorCreateB2cOrder = { status: false, message: "" };
