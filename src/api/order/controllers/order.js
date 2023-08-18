@@ -64,6 +64,7 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
     const invoiceData = {
       client: {
         country: "UAE",
+        company: "ONEDAY AE",
       },
       sender: {
         company: "ONEDAY AE",
@@ -224,6 +225,7 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
 
       invoiceData.client.address = body?.data?.deliveryAddress.addressLine1;
       invoiceData.client.city = body?.data?.deliveryAddress.city;
+      invoiceData.client.company = customer.firstName + " " + customer.lastName;
 
       // create order with customer id
       const order = await strapi.entityService.create("api::order.order", {
@@ -431,6 +433,7 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
           ].join("-");
         }
         todaysDate = formatDate(new Date());
+        invoiceData.information.date = todaysDate;
 
         let sellerOrder = await strapi.entityService.findMany(
           "api::seller-orders.seller-orders",
@@ -474,7 +477,6 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
       deliveryParams.param.skuName = `OD-AE-${order?.id}`;
       deliveryParams.param.orderCode = `OD-AE-${order?.id}`;
       invoiceData.information.number = `OD-AE-${order?.id}`;
-      invoiceData.information.date = new Date().toDateString();
 
       let tracking_id = null;
       let errorCreateB2cOrder = { status: false, message: "" };
@@ -587,6 +589,11 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
             }
           });
           order_invoice = testUpload[0].url;
+          await strapi.entityService.update("api::order.order", order?.id, {
+            data: {
+              order_invoice,
+            },
+          });
         });
       } catch (error) {
         return ctx.badRequest("Error while generating invoice", error);
@@ -624,7 +631,6 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
         })
         .catch((err) => console.error(err));
 
-      console.log(order_invoice);
       const published = await strapi.entityService.update(
         "api::order.order",
         order?.id,
@@ -634,7 +640,6 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
             publishedAt: new Date(),
             payment_link: checkoutUrl,
             awb_label,
-            order_invoice,
           },
         }
       );
