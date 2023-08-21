@@ -75,7 +75,7 @@ module.exports = {
       //     </table>`;
       //     await strapi.plugin("email").service("email").send({
       //       to: "projectmanageratgeek@gmail.com",
-      //       from: "mailer@oneday.ae",
+      //       from: "social@oneday.ae",
       //       subject: "Order Confirmed",
       //       html: completeEmail,
       //     });

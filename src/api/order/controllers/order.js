@@ -605,7 +605,7 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
         .service("email")
         .send({
           to: customer.user.email,
-          from: "mailer@oneday.ae",
+          from: "social@oneday.ae",
           subject: "Order Confirmed",
           html: `<h4>Your Order is Confirmed</h4><br><p><b>Your tracking id is: </b>${tracking_id}</p><br><p><a href="https://oneday.ae/track-my-order/${tracking_id}">Track From Here</a></p>`,
         });
