@@ -31,7 +31,7 @@ module.exports = ({ env }) => ({
     config: {
       provider: "nodemailer",
       providerOptions: {
-        host: env("SMTP_HOST", "mail.geekslogicity.com"),
+        host: env("SMTP_HOST", "s828.lon1.mysecurecloudhost.com"),
         port: env("SMTP_PORT", 465),
         secure: true,
         auth: {
@@ -41,8 +41,8 @@ module.exports = ({ env }) => ({
         // ... any custom nodemailer options
       },
       settings: {
-        defaultFrom: "aurora@geekslogicity.com",
-        defaultReplyTo: "aurora@geekslogicity.com",
+        defaultFrom: "social@oneday.ae",
+        defaultReplyTo: "social@oneday.ae",
       },
     },
   },
