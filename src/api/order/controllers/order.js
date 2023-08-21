@@ -496,6 +496,7 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
             await strapi.entityService.delete("api::order.order", order?.id);
             errorCreateB2cOrder.status = true;
             errorCreateB2cOrder.message = data.message;
+            console.log(data);
           }
         })
         .catch((err) => console.error(err));
