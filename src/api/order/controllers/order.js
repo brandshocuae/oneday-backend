@@ -348,9 +348,21 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
           skuGoodsValue: order_item.subTotal,
           skuUrl: "",
         });
+        deliveryParams.param.skuName +=
+          officialProduct.sku != null
+            ? officialProduct.sku + `*${order_item.quantity}|`
+            : officialProduct.productName + `*${order_item.quantity}|`;
+        console.log(
+          officialProduct.productName +
+            "|" +
+            (officialProduct.sku != null ? officialProduct.sku : " ")
+        );
         invoiceData.products.push({
           quantity: order_item.quantity,
-          description: officialProduct.productName,
+          description:
+            officialProduct.productName +
+            "|" +
+            (officialProduct.sku != null ? officialProduct.sku : " "),
           price: order_item.subTotal,
           "tax-rate": 0,
         });
@@ -474,7 +486,6 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
       }
 
       deliveryParams.param.totalWeight = totalWeight;
-      deliveryParams.param.skuName = `OD-AE-${order?.id}`;
       deliveryParams.param.orderCode = `OD-AE-${order?.id}`;
       invoiceData.information.number = `OD-AE-${order?.id}`;
 
