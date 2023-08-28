@@ -41,8 +41,8 @@ module.exports = ({ env }) => ({
         // ... any custom nodemailer options
       },
       settings: {
-        defaultFrom: "social@oneday.ae",
-        defaultReplyTo: "social@oneday.ae",
+        defaultFrom: "shopping@oneday.ae",
+        defaultReplyTo: "shopping@oneday.ae",
       },
     },
   },

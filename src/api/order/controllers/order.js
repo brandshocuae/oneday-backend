@@ -17,8 +17,8 @@ const { yup, validateYupSchema, errors } = require("@strapi/utils");
 const { ApplicationError, ValidationError, NotFoundError } = errors;
 
 const LINK_EXPIRE = 30;
-// const IMILE_BASE_URL = "https://openapi.52imile.cn";
-const IMILE_BASE_URL = "https://openapi.imile.com";
+const IMILE_BASE_URL = "https://openapi.52imile.cn";
+// const IMILE_BASE_URL = "https://openapi.imile.com";
 
 const orderSchema = yup.object().shape({
   data: yup
