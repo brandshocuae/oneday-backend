@@ -72,6 +72,7 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
         zip: "",
         city: "dubai",
         country: "UAE",
+        phone: "04591 9932",
       },
       images: {
         logo: "https://oneday.ae/Logo.png",
