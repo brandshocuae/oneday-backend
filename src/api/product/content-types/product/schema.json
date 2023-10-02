@@ -120,6 +120,9 @@
     },
     "product_images": {
       "type": "json"
+    },
+    "supplier": {
+      "type": "string"
     }
   }
 }
