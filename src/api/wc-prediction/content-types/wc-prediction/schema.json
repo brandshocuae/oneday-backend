@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "wc_predictions",
+  "info": {
+    "singularName": "wc-prediction",
+    "pluralName": "wc-predictions",
+    "displayName": "WC Prediction"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "customer": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::customer.customer"
+    },
+    "winning_team": {
+      "type": "enumeration",
+      "enum": [
+        "Afghanistan",
+        "Australia",
+        "Bangladesh",
+        "England",
+        "India",
+        "Netherlands",
+        "New Zealand",
+        "Pakistan",
+        "South Africa",
+        "Sri Lanka"
+      ]
+    }
+  }
+}
