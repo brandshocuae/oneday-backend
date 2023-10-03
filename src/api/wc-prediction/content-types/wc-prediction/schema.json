@@ -4,18 +4,14 @@
   "info": {
     "singularName": "wc-prediction",
     "pluralName": "wc-predictions",
-    "displayName": "WC Prediction"
+    "displayName": "WC Prediction",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "customer": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::customer.customer"
-    },
     "winning_team": {
       "type": "enumeration",
       "enum": [
@@ -30,6 +26,11 @@
         "South Africa",
         "Sri Lanka"
       ]
+    },
+    "user_id": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
     }
   }
 }
