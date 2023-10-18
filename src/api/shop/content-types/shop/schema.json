@@ -45,6 +45,12 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::product.product"
+    },
+    "everyday_essential": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::everyday-essentials.everyday-essentials",
+      "inversedBy": "shops"
     }
   }
 }

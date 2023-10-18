@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "all_everyday_essentials",
+  "info": {
+    "singularName": "everyday-essentials",
+    "pluralName": "all-everyday-essentials",
+    "displayName": "Everyday Essentials",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "banner": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "shops": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::shop.shop",
+      "mappedBy": "everyday_essential"
+    },
+    "products": {
+      "type": "component",
+      "repeatable": true,
+      "component": "variant-options.deal-products"
+    },
+    "Heading": {
+      "type": "string"
+    },
+    "SubHeading": {
+      "type": "string"
+    }
+  }
+}

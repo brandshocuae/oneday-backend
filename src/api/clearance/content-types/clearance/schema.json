@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "clearances",
+  "info": {
+    "singularName": "clearance",
+    "pluralName": "clearances",
+    "displayName": "clearance"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Heading": {
+      "type": "string"
+    },
+    "subHeading": {
+      "type": "string"
+    },
+    "products": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product"
+    }
+  }
+}
