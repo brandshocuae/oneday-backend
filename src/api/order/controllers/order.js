@@ -67,8 +67,8 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
         company: "ONEDAY AE",
       },
       sender: {
-        company: "Brands Hoc Group LLC",
-        address: "Office 1602, Al Owais Business Tower AL Sabkha Street, Deira",
+        company: "",
+        address: "",
         zip: "",
         city: "dubai",
         country: "UAE",
