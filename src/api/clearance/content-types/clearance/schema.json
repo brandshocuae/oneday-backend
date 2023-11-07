@@ -4,7 +4,8 @@
   "info": {
     "singularName": "clearance",
     "pluralName": "clearances",
-    "displayName": "clearance"
+    "displayName": "clearance",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -21,6 +22,11 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::product.product"
+    },
+    "clearanceProducts": {
+      "type": "component",
+      "repeatable": true,
+      "component": "variant-options.deal-products"
     }
   }
 }
