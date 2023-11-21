@@ -89,88 +89,88 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
       },
     };
 
-    const DEFAULT_PARAMS = {
-      customerId: process.env.IMILE_CUSTOMER_ID,
-      sign: process.env.IMILE_API_KEY,
-      accessToken: "",
-      signMethod: "SimpleKey",
-      format: "json",
-      version: "1.0.0",
-      timestamp: new Date().getTime(),
-      timeZone: "+4",
-    };
+    // const DEFAULT_PARAMS = {
+    //   customerId: process.env.IMILE_CUSTOMER_ID,
+    //   sign: process.env.IMILE_API_KEY,
+    //   accessToken: "",
+    //   signMethod: "SimpleKey",
+    //   format: "json",
+    //   version: "1.0.0",
+    //   timestamp: new Date().getTime(),
+    //   timeZone: "+4",
+    // };
 
-    const deliveryParams = {
-      ...DEFAULT_PARAMS,
-      param: {
-        orderCode: "",
-        orderType: "100",
-        oldExpressNo: "",
-        consignorContact: "Brands Hoc Group LLC",
-        consignorPhone: "04591 9932",
-        consignorMobile: "",
-        consignorCountry: "UAE",
-        consignorProvince: "",
-        consignorCity: "Dubai",
-        consignorArea: "",
-        consignorAddress:
-          "Office 1602, Al Owais Business Tower AL Sabkha Street, Deira",
-        consignorLongitude: "",
-        consignorLatitude: "",
-        consignee: "",
-        consigneeContact: "",
-        consigneeMobile: "",
-        consigneePhone: "",
-        consigneeEmail: "",
-        consigneeCountry: "UAE",
-        consigneeProvince: "",
-        consigneeCity: "",
-        consigneeArea: "",
-        consigneeAddress: "",
-        consigneeLongitude: "",
-        consigneeLatitude: "",
-        goodsValue: ctx.request.body?.data?.totalAmount,
-        collectingMoney: ctx.request.body?.data?.totalAmount,
-        paymentMethod: "200",
-        totalCount: "1",
-        totalWeight: "",
-        totalVolume: "",
-        skuTotal: 0,
-        skuName: "",
-        skuZh: "",
-        deliveryRequirements: "",
-        orderDescription: "",
-        buyerId: "",
-        platform: "",
-        isInsurance: 0,
-        pickDate: "",
-        pickType: "0",
-        batterType: "",
-        currency: "Local",
-        skuDetailList: [],
-      },
-    };
+    // const deliveryParams = {
+    //   ...DEFAULT_PARAMS,
+    //   param: {
+    //     orderCode: "",
+    //     orderType: "100",
+    //     oldExpressNo: "",
+    //     consignorContact: "Brands Hoc Group LLC",
+    //     consignorPhone: "04591 9932",
+    //     consignorMobile: "",
+    //     consignorCountry: "UAE",
+    //     consignorProvince: "",
+    //     consignorCity: "Dubai",
+    //     consignorArea: "",
+    //     consignorAddress:
+    //       "Office 1602, Al Owais Business Tower AL Sabkha Street, Deira",
+    //     consignorLongitude: "",
+    //     consignorLatitude: "",
+    //     consignee: "",
+    //     consigneeContact: "",
+    //     consigneeMobile: "",
+    //     consigneePhone: "",
+    //     consigneeEmail: "",
+    //     consigneeCountry: "UAE",
+    //     consigneeProvince: "",
+    //     consigneeCity: "",
+    //     consigneeArea: "",
+    //     consigneeAddress: "",
+    //     consigneeLongitude: "",
+    //     consigneeLatitude: "",
+    //     goodsValue: ctx.request.body?.data?.totalAmount,
+    //     collectingMoney: ctx.request.body?.data?.totalAmount,
+    //     paymentMethod: "200",
+    //     totalCount: "1",
+    //     totalWeight: "",
+    //     totalVolume: "",
+    //     skuTotal: 0,
+    //     skuName: "",
+    //     skuZh: "",
+    //     deliveryRequirements: "",
+    //     orderDescription: "",
+    //     buyerId: "",
+    //     platform: "",
+    //     isInsurance: 0,
+    //     pickDate: "",
+    //     pickType: "0",
+    //     batterType: "",
+    //     currency: "Local",
+    //     skuDetailList: [],
+    //   },
+    // };
 
-    await fetch(`${IMILE_BASE_URL}/auth/accessToken/grant`, {
-      method: "POST",
-      headers: {
-        accept: "application/json",
-        "content-type": "application/json",
-      },
-      body: JSON.stringify({
-        ...DEFAULT_PARAMS,
-        param: {
-          grantType: "clientCredential",
-        },
-      }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        // console.log(data, DEFAULT_PARAMS);
-        DEFAULT_PARAMS.accessToken = data.data.accessToken;
-        deliveryParams.accessToken = data.data.accessToken;
-      })
-      .catch((err) => console.error(err));
+    // await fetch(`${IMILE_BASE_URL}/auth/accessToken/grant`, {
+    //   method: "POST",
+    //   headers: {
+    //     accept: "application/json",
+    //     "content-type": "application/json",
+    //   },
+    //   body: JSON.stringify({
+    //     ...DEFAULT_PARAMS,
+    //     param: {
+    //       grantType: "clientCredential",
+    //     },
+    //   }),
+    // })
+    //   .then((response) => response.json())
+    //   .then((data) => {
+    //     // console.log(data, DEFAULT_PARAMS);
+    //     DEFAULT_PARAMS.accessToken = data.data.accessToken;
+    //     deliveryParams.accessToken = data.data.accessToken;
+    //   })
+    //   .catch((err) => console.error(err));
 
     try {
       const { body } = ctx.request;
@@ -210,19 +210,19 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
 
       // console.log(customer);
 
-      deliveryParams.param.consignee =
-        customer.firstName + " " + customer.lastName;
-      deliveryParams.param.consigneeContact =
-        customer.firstName + " " + customer.lastName;
-      deliveryParams.param.consigneeMobile = "";
-      deliveryParams.param.consigneePhone = body?.data?.deliveryAddress.contact;
-      deliveryParams.param.consigneeEmail = customer.user.email;
-      deliveryParams.param.consigneeCity = body?.data?.deliveryAddress.city;
-      deliveryParams.param.consigneeAddress =
-        body?.data?.deliveryAddress.addressLine1;
-      deliveryParams.param.consigneeLongitude =
-        body?.data?.deliveryAddress.long;
-      deliveryParams.param.consigneeLatitude = body?.data?.deliveryAddress.lat;
+      // deliveryParams.param.consignee =
+      //   customer.firstName + " " + customer.lastName;
+      // deliveryParams.param.consigneeContact =
+      //   customer.firstName + " " + customer.lastName;
+      // deliveryParams.param.consigneeMobile = "";
+      // deliveryParams.param.consigneePhone = body?.data?.deliveryAddress.contact;
+      // deliveryParams.param.consigneeEmail = customer.user.email;
+      // deliveryParams.param.consigneeCity = body?.data?.deliveryAddress.city;
+      // deliveryParams.param.consigneeAddress =
+      //   body?.data?.deliveryAddress.addressLine1;
+      // deliveryParams.param.consigneeLongitude =
+      //   body?.data?.deliveryAddress.long;
+      // deliveryParams.param.consigneeLatitude = body?.data?.deliveryAddress.lat;
 
       invoiceData.client.address = body?.data?.deliveryAddress.addressLine1;
       invoiceData.client.city = body?.data?.deliveryAddress.city;
@@ -260,7 +260,7 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
           payment_method: body?.data?.payment_method,
         },
       });
-      deliveryParams.param.skuTotal = body?.data?.order_items.length;
+      // deliveryParams.param.skuTotal = body?.data?.order_items.length;
 
       if (body?.data?.payment_method == 2) {
         const BASE_URL = ctx.request.headers.origin || "https://oneday.ae";
@@ -288,8 +288,8 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
           ],
         });
         checkoutUrl = session.url;
-        deliveryParams.param.paymentMethod = "100";
-        deliveryParams.param.collectingMoney = "0";
+        // deliveryParams.param.paymentMethod = "100";
+        // deliveryParams.param.collectingMoney = "0";
       }
 
       if (body?.data?.payment_method == 7) {
@@ -326,8 +326,8 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
           .then((response) => response.json())
           .then((data) => {
             checkoutUrl = data.transaction.url;
-            deliveryParams.param.paymentMethod = "100";
-            deliveryParams.param.collectingMoney = "0";
+            // deliveryParams.param.paymentMethod = "100";
+            // deliveryParams.param.collectingMoney = "0";
           })
           .catch((err) => console.error(err));
       }
@@ -359,26 +359,26 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
 
         let officialProduct = order_item?.variation === 0 ? item : item.product;
 
-        deliveryParams.param.skuDetailList.push({
-          skuName: officialProduct.productName,
-          skuNo:
-            officialProduct.sku != null
-              ? officialProduct.sku
-              : officialProduct.slug,
-          skuDesc: officialProduct.slug,
-          skuQty: order_item.quantity,
-          skuGoodsValue: order_item.subTotal,
-          skuUrl: "",
-        });
-        deliveryParams.param.skuName +=
-          officialProduct.sku != null
-            ? officialProduct.sku + `*${order_item.quantity}|`
-            : officialProduct.productName + `*${order_item.quantity}|`;
-        console.log(
-          officialProduct.productName +
-            "|" +
-            (officialProduct.sku != null ? officialProduct.sku : " ")
-        );
+        // deliveryParams.param.skuDetailList.push({
+        //   skuName: officialProduct.productName,
+        //   skuNo:
+        //     officialProduct.sku != null
+        //       ? officialProduct.sku
+        //       : officialProduct.slug,
+        //   skuDesc: officialProduct.slug,
+        //   skuQty: order_item.quantity,
+        //   skuGoodsValue: order_item.subTotal,
+        //   skuUrl: "",
+        // });
+        // deliveryParams.param.skuName +=
+        //   officialProduct.sku != null
+        //     ? officialProduct.sku + `*${order_item.quantity}|`
+        //     : officialProduct.productName + `*${order_item.quantity}|`;
+        // console.log(
+        //   officialProduct.productName +
+        //     "|" +
+        //     (officialProduct.sku != null ? officialProduct.sku : " ")
+        // );
         invoiceData.products.push({
           quantity: order_item.quantity,
           description:
@@ -488,39 +488,39 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
         }
       }
 
-      deliveryParams.param.totalWeight = totalWeight;
-      deliveryParams.param.orderCode = `OD-AE-${order?.id}`;
+      // deliveryParams.param.totalWeight = totalWeight;
+      // deliveryParams.param.orderCode = `OD-AE-${order?.id}`;
       invoiceData.information.number = `OD-AE-${order?.id}`;
 
-      let tracking_id = null;
-      let errorCreateB2cOrder = { status: false, message: "" };
-      await fetch(`${IMILE_BASE_URL}/client/order/createB2cOrder`, {
-        method: "POST",
-        headers: {
-          accept: "application/json",
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(deliveryParams),
-      })
-        .then((response) => response.json())
-        .then(async (data) => {
-          // console.log(data);
-          if (data.code == 200) tracking_id = data.data.expressNo;
-          else {
-            await strapi.entityService.delete("api::order.order", order?.id);
-            errorCreateB2cOrder.status = true;
-            errorCreateB2cOrder.message = data.message;
-            console.log(data);
-          }
-        })
-        .catch((err) => console.error(err));
+      let tracking_id = "Will be shared soon";
+      // let errorCreateB2cOrder = { status: false, message: "" };
+      // await fetch(`${IMILE_BASE_URL}/client/order/createB2cOrder`, {
+      //   method: "POST",
+      //   headers: {
+      //     accept: "application/json",
+      //     "content-type": "application/json",
+      //   },
+      //   body: JSON.stringify(deliveryParams),
+      // })
+      //   .then((response) => response.json())
+      //   .then(async (data) => {
+      //     // console.log(data);
+      //     if (data.code == 200) tracking_id = data.data.expressNo;
+      //     else {
+      //       await strapi.entityService.delete("api::order.order", order?.id);
+      //       errorCreateB2cOrder.status = true;
+      //       errorCreateB2cOrder.message = data.message;
+      //       console.log(data);
+      //     }
+      //   })
+      //   .catch((err) => console.error(err));
 
-      if (errorCreateB2cOrder.status) {
-        return ctx.badRequest(
-          "Address Validation Error",
-          errorCreateB2cOrder.message
-        );
-      }
+      // if (errorCreateB2cOrder.status) {
+      //   return ctx.badRequest(
+      //     "Address Validation Error",
+      //     errorCreateB2cOrder.message
+      //   );
+      // }
       if (body?.data?.payment_method == 2 || body?.data?.payment_method == 7) {
         const paymentLinkExpireDate = new Date();
         paymentLinkExpireDate.setMinutes(
@@ -536,34 +536,43 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
             );
             if (newOrder) {
               if (newOrder.payment_status == false) {
-                await fetch(`${IMILE_BASE_URL}/client/order/deleteOrder`, {
-                  method: "POST",
-                  headers: {
-                    accept: "application/json",
-                    "content-type": "application/json",
-                  },
-                  body: JSON.stringify({
-                    ...DEFAULT_PARAMS,
-                    param: {
-                      orderCode: `OD-AE-${newOrder.id}`,
-                      waybillNo: newOrder.tracking_id,
+                await strapi.entityService.update(
+                  "api::order.order",
+                  order?.id,
+                  {
+                    data: {
+                      canceled: true,
                     },
-                  }),
-                })
-                  .then((response) => response.json())
-                  .then(async (data) => {
-                    console.log(data);
-                    await strapi.entityService.update(
-                      "api::order.order",
-                      order?.id,
-                      {
-                        data: {
-                          canceled: true,
-                        },
-                      }
-                    );
-                  })
-                  .catch((err) => console.error(err));
+                  }
+                );
+                // await fetch(`${IMILE_BASE_URL}/client/order/deleteOrder`, {
+                //   method: "POST",
+                //   headers: {
+                //     accept: "application/json",
+                //     "content-type": "application/json",
+                //   },
+                //   body: JSON.stringify({
+                //     ...DEFAULT_PARAMS,
+                //     param: {
+                //       orderCode: `OD-AE-${newOrder.id}`,
+                //       waybillNo: newOrder.tracking_id,
+                //     },
+                //   }),
+                // })
+                //   .then((response) => response.json())
+                //   .then(async (data) => {
+                //     console.log(data);
+                //     await strapi.entityService.update(
+                //       "api::order.order",
+                //       order?.id,
+                //       {
+                //         data: {
+                //           canceled: true,
+                //         },
+                //       }
+                //     );
+                //   })
+                //   .catch((err) => console.error(err));
               }
             }
 
@@ -841,7 +850,7 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
 														<tr>
 															<td class="pad">
 																<div style="color:#000000;direction:ltr;font-family:'Montserrat', 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;font-size:16px;font-weight:400;letter-spacing:0px;line-height:120%;text-align:center;mso-line-height-alt:19.2px;">
-																	<p style="margin: 0; margin-bottom: 16px;">You can track you order by this tracking number: <a href="https://oneday.ae/track-my-order/${tracking_id}" target="_blank" style="text-decoration: underline; color: #ec6631;" rel="noopener">${tracking_id}</a></p>
+																	// <p style="margin: 0; margin-bottom: 16px;">You can track you order by this tracking number: <a href="https://oneday.ae/track-my-order/${tracking_id}" target="_blank" style="text-decoration: underline; color: #ec6631;" rel="noopener">${tracking_id}</a></p>
 																	<p style="margin: 0;">for more information contact us <a href="https://oneday.ae/contact-us" target="_blank" style="text-decoration: underline; color: #ec6631;" rel="noopener">HERE!</a></p>
 																</div>
 															</td>
@@ -873,37 +882,37 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
         // html: `<h4>Your Order is Confirmed</h4><br><p><b>Your tracking id is: </b>${tracking_id}</p><br><p><a href="https://oneday.ae/track-my-order/${tracking_id}">Track From Here</a></p>`,
       });
 
-      let awb_label = "";
-      await fetch(`${IMILE_BASE_URL}/client/order/batchRePrintOrder`, {
-        method: "POST",
-        headers: {
-          accept: "application/json",
-          "content-type": "application/json",
-        },
-        body: JSON.stringify({
-          ...DEFAULT_PARAMS,
-          param: {
-            customerId: DEFAULT_PARAMS.customerId,
-            orderCodeList: [tracking_id],
-            orderCodeType: 2,
-          },
-        }),
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          awb_label = data.data[0].label;
-        })
-        .catch((err) => console.error(err));
+      // let awb_label = "";
+      // await fetch(`${IMILE_BASE_URL}/client/order/batchRePrintOrder`, {
+      //   method: "POST",
+      //   headers: {
+      //     accept: "application/json",
+      //     "content-type": "application/json",
+      //   },
+      //   body: JSON.stringify({
+      //     ...DEFAULT_PARAMS,
+      //     param: {
+      //       customerId: DEFAULT_PARAMS.customerId,
+      //       orderCodeList: [tracking_id],
+      //       orderCodeType: 2,
+      //     },
+      //   }),
+      // })
+      //   .then((response) => response.json())
+      //   .then((data) => {
+      //     awb_label = data.data[0].label;
+      //   })
+      //   .catch((err) => console.error(err));
 
       const published = await strapi.entityService.update(
         "api::order.order",
         order?.id,
         {
           data: {
-            tracking_id: tracking_id,
+            // tracking_id: tracking_id,
             publishedAt: new Date(),
             payment_link: checkoutUrl,
-            awb_label,
+            // awb_label,
           },
         }
       );
